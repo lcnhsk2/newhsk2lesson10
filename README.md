@@ -1,0 +1,2 @@
+# newhsk2lesson10
+LCN NEW HSK2 LESSON 10
