@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>HSK 2 Bab 10 - Flashcard & Kuis Interaktif (87 Kosakata)</title>
+    <title>HSK 2 Bab 10 – 就要考试了 | Flashcard & Kuis</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #451a03 0%, #78350f 50%, #d97706 100%);
             font-family: 'Arial', 'Segoe UI', sans-serif;
             min-height: 100vh;
             padding: 20px;
@@ -36,7 +36,7 @@
         }
         h1 {
             font-size: 2.2rem;
-            background: linear-gradient(120deg, #b45309, #d97706);
+            background: linear-gradient(120deg, #78350f, #d97706);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -44,7 +44,7 @@
         }
         .watermark {
             font-size: 0.9rem;
-            color: #d97706;
+            color: #78350f;
             font-weight: bold;
             background: #fef3c7;
             display: inline-block;
@@ -59,11 +59,11 @@
             gap: 20px;
             justify-content: center;
             margin-bottom: 25px;
-            border-bottom: 3px solid #ffd966;
+            border-bottom: 3px solid #fcd34d;
             padding-bottom: 8px;
         }
         .tab-btn {
-            background: #ffe8cc;
+            background: #fef3c7;
             border: none;
             font-size: 1.3rem;
             font-weight: bold;
@@ -71,14 +71,14 @@
             border-radius: 60px;
             cursor: pointer;
             transition: 0.2s;
-            color: #5e3a1c;
+            color: #451a03;
             font-family: 'Arial', sans-serif;
             box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
         .tab-btn.active {
-            background: #f59e0b;
+            background: #d97706;
             color: white;
-            box-shadow: 0 6px 12px rgba(245,158,11,0.3);
+            box-shadow: 0 6px 12px rgba(217,119,6,0.3);
         }
         .tab-content {
             display: none;
@@ -92,7 +92,6 @@
             to { opacity: 1; transform: translateY(0);}
         }
 
-        /* FLASHCARD */
         .flashcard-area {
             display: flex;
             flex-direction: column;
@@ -111,12 +110,12 @@
             transition: 0.2s;
             border: 3px solid #fcd34d;
         }
-        .card:hover { transform: scale(1.02); background: #fff5e6; }
+        .card:hover { transform: scale(1.02); background: #fffbeb; }
         .card-hanzi {
             font-family: 'Simsun', '宋体', 'Times New Roman', serif;
             font-size: 5rem;
             font-weight: 800;
-            color: #b45309;
+            color: #78350f;
             letter-spacing: 4px;
             margin-bottom: 20px;
             word-break: break-word;
@@ -131,11 +130,11 @@
         .card-arti {
             font-family: 'Arial', sans-serif;
             font-size: 1.5rem;
-            background: #eef2ff;
+            background: #fef3c7;
             display: inline-block;
             padding: 8px 22px;
             border-radius: 50px;
-            color: #1e293b;
+            color: #451a03;
         }
         .info-text {
             font-family: 'Arial', sans-serif;
@@ -151,7 +150,7 @@
             margin: 15px 0;
         }
         button {
-            background: #ffb347;
+            background: #f59e0b;
             border: none;
             padding: 10px 22px;
             font-size: 1.1rem;
@@ -161,11 +160,11 @@
             font-family: 'Arial', sans-serif;
             transition: 0.1s;
             color: white;
-            box-shadow: 0 4px 0 #c47d2e;
+            box-shadow: 0 4px 0 #78350f;
         }
         button:active {
             transform: translateY(2px);
-            box-shadow: 0 1px 0 #c47d2e;
+            box-shadow: 0 1px 0 #78350f;
         }
         .shuffle-btn { background: #3b82f6; box-shadow: 0 4px 0 #1e40af; }
         .checklist-btn { background: #10b981; box-shadow: 0 4px 0 #047857; }
@@ -183,6 +182,7 @@
             font-family: 'Arial', sans-serif;
             font-weight: bold;
             font-size: 0.9rem;
+            color: #451a03;
         }
         .counter {
             font-family: 'Arial', sans-serif;
@@ -193,10 +193,9 @@
             display: inline-block;
         }
 
-        /* KUIS */
         .quiz-area { text-align: center; }
         .timer-bar {
-            background: #fef9e3;
+            background: #fffbeb;
             padding: 10px 20px;
             border-radius: 60px;
             display: flex;
@@ -206,33 +205,33 @@
             flex-wrap: wrap;
             margin-bottom: 20px;
         }
-        .timer-label { font-weight: bold; background: #facc15; padding: 5px 15px; border-radius: 40px; }
+        .timer-label { font-weight: bold; background: #fcd34d; padding: 5px 15px; border-radius: 40px; color: #451a03; }
         .progress-container { flex: 2; background-color: #e2e8f0; border-radius: 30px; height: 18px; overflow: hidden; }
-        .time-progress { width: 100%; height: 100%; background: linear-gradient(90deg, #10b981, #34d399); border-radius: 30px; transition: width 0.1s linear; }
+        .time-progress { width: 100%; height: 100%; background: linear-gradient(90deg, #f59e0b, #d97706); border-radius: 30px; transition: width 0.1s linear; }
         .time-warning { background: linear-gradient(90deg, #ef4444, #f97316); }
         .timer-digit { font-family: monospace; font-size: 1.6rem; font-weight: 800; background: #0f172a; color: #fef9c3; padding: 4px 18px; border-radius: 50px; min-width: 100px; }
         .quiz-question { background: #fffbeb; border-radius: 70px; padding: 25px; margin: 15px 0; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
-        .quiz-arti { font-family: 'Arial', sans-serif; font-size: 2rem; font-weight: bold; color: #7b341e; background: #fed7aa; display: inline-block; padding: 10px 30px; border-radius: 60px; }
+        .quiz-arti { font-family: 'Arial', sans-serif; font-size: 2rem; font-weight: bold; color: #451a03; background: #fde68a; display: inline-block; padding: 10px 30px; border-radius: 60px; }
         .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; margin: 25px 0; }
         .quiz-option {
             font-family: 'Simsun', '宋体', serif;
             font-size: 1.5rem;
             font-weight: bold;
-            background: linear-gradient(145deg, #fef9e3, #fff2df);
-            border: 3px solid #fbbf24;
+            background: linear-gradient(145deg, #fffbeb, #fef3c7);
+            border: 3px solid #fcd34d;
             border-radius: 70px;
             padding: 14px 8px;
             cursor: pointer;
             transition: 0.1s;
             text-align: center;
-            color: #3b2b1f;
-            box-shadow: 0 5px 0 #eab308;
+            color: #451a03;
+            box-shadow: 0 5px 0 #d97706;
         }
-        .quiz-option:hover:not(:disabled) { transform: translateY(-2px); background: #fff0cc; }
-        .quiz-option:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 2px 0 #eab308; }
+        .quiz-option:hover:not(:disabled) { transform: translateY(-2px); background: #fde68a; }
+        .quiz-option:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 2px 0 #d97706; }
         .disabled-opt { opacity: 0.6; cursor: not-allowed; }
         .feedback { font-family: 'Arial', sans-serif; font-size: 1.2rem; padding: 12px; border-radius: 50px; margin: 15px 0; background: #f1f5f9; font-weight: bold; }
-        .score-area { font-family: 'Arial', sans-serif; font-size: 1.2rem; background: #facc15; display: inline-block; padding: 6px 22px; border-radius: 40px; margin-bottom: 12px; }
+        .score-area { font-family: 'Arial', sans-serif; font-size: 1.2rem; background: #fcd34d; display: inline-block; padding: 6px 22px; border-radius: 40px; margin-bottom: 12px; color: #451a03; }
         .quiz-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
         .next-quiz { background: #10b981; box-shadow: 0 4px 0 #047857; }
         .reset-quiz { background: #ef4444; box-shadow: 0 4px 0 #b91c1c; }
@@ -250,8 +249,8 @@
 <body>
 <div class="app-container">
     <div class="title-section">
-        <h1>📚 HSK 2 Bab 10 – 就要考试了</h1>
-        <div class="watermark">lcn palembang-08994477998</div>
+        <h1>📝 HSK 2 Bab 10 – 就要考试了</h1>
+        <div class="watermark">Berdasarkan TB & WB Lesson 10 | Flashcard + Kuis</div>
     </div>
 
     <div class="tabs">
@@ -259,7 +258,7 @@
         <button class="tab-btn" data-tab="quiz">🎯 KUIS HANZI 🎯</button>
     </div>
 
-    <!-- FLASHCARD TAB -->
+    <!-- FLASHCARD -->
     <div id="flashcardTab" class="tab-content active">
         <div class="flashcard-area">
             <div class="card" id="flashcardCard">
@@ -278,15 +277,15 @@
             </div>
             <div class="review-badge">
                 <span class="mark-info" id="markedCountBadge">📌 Tertandai: 0</span>
-                <span class="counter" id="flashCounter">Kartu 1 / 87</span>
+                <span class="counter" id="flashCounter">Kartu 1 / 60</span>
             </div>
         </div>
     </div>
 
-    <!-- KUIS TAB -->
+    <!-- KUIS -->
     <div id="quizTab" class="tab-content">
         <div class="quiz-area">
-            <div class="score-area">🏆 SKOR: <span id="quizScore">0</span> / <span id="totalQuizCount">87</span></div>
+            <div class="score-area">🏆 SKOR: <span id="quizScore">0</span> / <span id="totalQuizCount">60</span></div>
             <div class="timer-bar">
                 <span class="timer-label">⏱ WAKTU</span>
                 <div class="progress-container">
@@ -310,95 +309,123 @@
 </div>
 
 <script>
-    // ======================= DATA KOSAKATA (87 item dari file) =======================
+    // ======================= KOSAKATA BAB 10 =======================
+    // Diambil dari file HSK2 KOSAKATA BAB 10.txt
     const vocabulary = [
-        { hanzi: "考试", pinyin: "kǎoshì", arti: "ujian; mengikuti ujian" },
-        { hanzi: "开学", pinyin: "kāixué", arti: "mulai sekolah; pembukaan semester" },
-        { hanzi: "准备", pinyin: "zhǔnbèi", arti: "menyiapkan" },
-        { hanzi: "书包", pinyin: "shūbāo", arti: "tas sekolah" },
-        { hanzi: "门后面", pinyin: "mén hòumiàn", arti: "di belakang pintu" },
-        { hanzi: "床上", pinyin: "chuáng shàng", arti: "di atas tempat tidur" },
-        { hanzi: "桌子上", pinyin: "zhuōzi shàng", arti: "di atas meja" },
-        { hanzi: "本子", pinyin: "běnzi", arti: "buku catatan; buku tulis" },
+        // Kata Benda
+        { hanzi: "考试", pinyin: "kǎoshì", arti: "ujian / tes" },
         { hanzi: "词", pinyin: "cí", arti: "kata" },
-        { hanzi: "题", pinyin: "tí", arti: "soal; pertanyaan" },
-        { hanzi: "错", pinyin: "cuò", arti: "salah" },
-        { hanzi: "对", pinyin: "duì", arti: "benar" },
-        { hanzi: "还是", pinyin: "háishì", arti: "atau (dalam pertanyaan pilihan)" },
-        { hanzi: "快要", pinyin: "kuàiyào", arti: "akan segera (waktu dekat)" },
-        { hanzi: "就要", pinyin: "jiùyào", arti: "akan segera (waktu tertentu)" },
-        { hanzi: "要……了", pinyin: "yào...le", arti: "akan (segera terjadi)" },
-        { hanzi: "快……了", pinyin: "kuài...le", arti: "akan segera" },
-        { hanzi: "快要……了", pinyin: "kuàiyào...le", arti: "akan segera" },
-        { hanzi: "就要……了", pinyin: "jiùyào...le", arti: "akan segera (dengan waktu spesifik)" },
-        { hanzi: "笑", pinyin: "xiào", arti: "tertawa; tersenyum" },
+        { hanzi: "本子", pinyin: "běnzi", arti: "buku catatan / buku tulis" },
+        { hanzi: "题", pinyin: "tí", arti: "soal / pertanyaan (dalam ujian)" },
+        { hanzi: "问题", pinyin: "wèntí", arti: "masalah / pertanyaan" },
+        { hanzi: "书包", pinyin: "shūbāo", arti: "tas sekolah / ransel" },
+        { hanzi: "书", pinyin: "shū", arti: "buku" },
+        { hanzi: "笔", pinyin: "bǐ", arti: "pena / pulpen" },
+        { hanzi: "桌子", pinyin: "zhuōzi", arti: "meja" },
+        { hanzi: "床", pinyin: "chuáng", arti: "tempat tidur" },
+        { hanzi: "门", pinyin: "mén", arti: "pintu" },
+        { hanzi: "后面", pinyin: "hòumiàn", arti: "belakang / di belakang" },
+        { hanzi: "意思", pinyin: "yìsi", arti: "arti / makna" },
+        { hanzi: "开学", pinyin: "kāixué", arti: "awal tahun ajaran / pembukaan sekolah" },
+        { hanzi: "学习", pinyin: "xuéxí", arti: "belajar / pelajaran" },
+        { hanzi: "爷爷", pinyin: "yéye", arti: "kakek (dari ayah)" },
+        { hanzi: "奶奶", pinyin: "nǎinai", arti: "nenek (dari ayah)" },
+        { hanzi: "爸爸", pinyin: "bàba", arti: "ayah" },
+        { hanzi: "妈妈", pinyin: "māma", arti: "ibu" },
+        { hanzi: "哥哥", pinyin: "gēge", arti: "kakak laki-laki" },
+        { hanzi: "姐姐", pinyin: "jiějie", arti: "kakak perempuan" },
+        { hanzi: "男朋友", pinyin: "nánpéngyou", arti: "pacar laki-laki" },
+        { hanzi: "画笔", pinyin: "huàbǐ", arti: "kuas lukis / pensil warna" },
+        { hanzi: "名字", pinyin: "míngzi", arti: "nama" },
+        { hanzi: "字", pinyin: "zì", arti: "huruf / aksara" },
+        { hanzi: "雨", pinyin: "yǔ", arti: "hujan" },
+        { hanzi: "火车", pinyin: "huǒchē", arti: "kereta api" },
+        { hanzi: "时间", pinyin: "shíjiān", arti: "waktu" },
+        { hanzi: "周末", pinyin: "zhōumò", arti: "akhir pekan" },
+        // Kata Kerja
+        { hanzi: "准备", pinyin: "zhǔnbèi", arti: "mempersiapkan" },
         { hanzi: "帮", pinyin: "bāng", arti: "membantu" },
-        { hanzi: "准备好", pinyin: "zhǔnbèi hǎo", arti: "siap" },
-        { hanzi: "看见", pinyin: "kànjiàn", arti: "melihat" },
-        { hanzi: "懂", pinyin: "dǒng", arti: "mengerti; paham" },
-        { hanzi: "意思", pinyin: "yìsi", arti: "arti; makna" },
-        { hanzi: "做错", pinyin: "zuò cuò", arti: "mengerjakan salah" },
-        { hanzi: "考得好", pinyin: "kǎo de hǎo", arti: "ujian dengan baik" },
-        { hanzi: "比上次好", pinyin: "bǐ shàng cì hǎo", arti: "lebih baik dari waktu lalu" },
-        { hanzi: "洗", pinyin: "xǐ", arti: "mencuci" },
-        { hanzi: "洗手", pinyin: "xǐ shǒu", arti: "cuci tangan" },
-        { hanzi: "手", pinyin: "shǒu", arti: "tangan" },
-        { hanzi: "吃饭", pinyin: "chī fàn", arti: "makan" },
-        { hanzi: "快开学了", pinyin: "kuài kāixué le", arti: "akan segera mulai sekolah" },
-        { hanzi: "就要考试了", pinyin: "jiùyào kǎoshì le", arti: "akan segera ujian" },
-        { hanzi: "本", pinyin: "běn", arti: "(kata satuan untuk buku)" },
-        { hanzi: "支", pinyin: "zhī", arti: "(kata satuan untuk alat tulis)" },
-        { hanzi: "笔", pinyin: "bǐ", arti: "pulpen; pensil" },
-        { hanzi: "书包里", pinyin: "shūbāo lǐ", arti: "di dalam tas sekolah" },
-        { hanzi: "椅子下面", pinyin: "yǐzi xiàmiàn", arti: "di bawah kursi" },
-        { hanzi: "地上", pinyin: "dì shàng", arti: "di lantai" },
-        { hanzi: "里面", pinyin: "lǐmiàn", arti: "di dalam" },
-        { hanzi: "外面", pinyin: "wàimiàn", arti: "di luar" },
-        { hanzi: "前面", pinyin: "qiánmiàn", arti: "di depan" },
-        { hanzi: "后面", pinyin: "hòumiàn", arti: "di belakang" },
-        { hanzi: "旁边", pinyin: "pángbiān", arti: "di samping" },
-        { hanzi: "这里", pinyin: "zhèlǐ", arti: "di sini" },
-        { hanzi: "那里", pinyin: "nàlǐ", arti: "di sana" },
+        { hanzi: "看见", pinyin: "kànjiàn", arti: "melihat (melihat dengan mata)" },
+        { hanzi: "知道", pinyin: "zhīdào", arti: "tahu" },
+        { hanzi: "懂", pinyin: "dǒng", arti: "mengerti / paham" },
+        { hanzi: "做错", pinyin: "zuòcuò", arti: "mengerjakan salah / melakukan kesalahan" },
+        { hanzi: "写", pinyin: "xiě", arti: "menulis" },
+        { hanzi: "看", pinyin: "kàn", arti: "melihat / membaca" },
+        { hanzi: "拿", pinyin: "ná", arti: "mengambil / memegang" },
+        { hanzi: "笑", pinyin: "xiào", arti: "tertawa / tersenyum" },
+        { hanzi: "问", pinyin: "wèn", arti: "bertanya" },
+        { hanzi: "回答", pinyin: "huídá", arti: "menjawab" },
+        { hanzi: "回来", pinyin: "huílái", arti: "kembali (ke sini)" },
+        { hanzi: "送", pinyin: "sòng", arti: "mengantar / mengirim" },
+        { hanzi: "到", pinyin: "dào", arti: "tiba / sampai" },
+        { hanzi: "开始", pinyin: "kāishǐ", arti: "mulai" },
+        { hanzi: "玩", pinyin: "wán", arti: "bermain" },
+        { hanzi: "休息", pinyin: "xiūxi", arti: "istirahat" },
+        { hanzi: "坐", pinyin: "zuò", arti: "duduk / naik (kendaraan)" },
+        { hanzi: "走路", pinyin: "zǒulù", arti: "berjalan kaki" },
+        { hanzi: "下雨", pinyin: "xiàyǔ", arti: "turun hujan" },
+        // Kata Sifat
+        { hanzi: "错", pinyin: "cuò", arti: "salah (keliru)" },
+        { hanzi: "对", pinyin: "duì", arti: "benar" },
+        { hanzi: "好", pinyin: "hǎo", arti: "baik / bagus" },
+        { hanzi: "忙", pinyin: "máng", arti: "sibuk" },
+        { hanzi: "累", pinyin: "lèi", arti: "lelah" },
+        { hanzi: "有意思", pinyin: "yǒuyìsi", arti: "menarik" },
+        { hanzi: "快", pinyin: "kuài", arti: "cepat / segera" },
+        // Konjungsi & Partikel
+        { hanzi: "还是", pinyin: "háishì", arti: "atau (dalam pertanyaan pilihan)" },
+        { hanzi: "呢", pinyin: "ne", arti: "partikel untuk pertanyaan balik / penekanan" },
+        { hanzi: "了", pinyin: "le", arti: "partikel aspek / perubahan keadaan" },
+        { hanzi: "就", pinyin: "jiù", arti: "segera / maka (dalam '就要...了' = akan segera)" },
+        { hanzi: "快要", pinyin: "kuàiyào", arti: "hampir / segera (dalam pola '快要...了')" },
+        { hanzi: "要", pinyin: "yào", arti: "akan (dalam pola '要...了' = akan segera)" },
+        // Pola Tata Bahasa (disimpan sebagai frasa)
+        { hanzi: "要...了", pinyin: "yào... le", arti: "Akan segera terjadi" },
+        { hanzi: "快...了", pinyin: "kuài... le", arti: "Hampir / segera" },
+        { hanzi: "快要...了", pinyin: "kuàiyào... le", arti: "Hampir / akan segera" },
+        { hanzi: "就要...了", pinyin: "jiùyào... le", arti: "Akan segera (dengan keterangan waktu)" },
+        { hanzi: "是 A 还是 B", pinyin: "shì A háishì B", arti: "Apakah A atau B? (pertanyaan pilihan)" },
+        // Kata Tanya
+        { hanzi: "什么", pinyin: "shénme", arti: "apa" },
         { hanzi: "哪儿", pinyin: "nǎr", arti: "di mana" },
-        { hanzi: "呢", pinyin: "ne", arti: "partikel untuk pertanyaan atau penekanan" },
-        { hanzi: "啊", pinyin: "a", arti: "partikel seru" },
-        { hanzi: "吧", pinyin: "ba", arti: "partikel untuk saran" },
-        { hanzi: "吗", pinyin: "ma", arti: "partikel tanya" },
-        { hanzi: "快要开学了", pinyin: "kuàiyào kāixué le", arti: "akan segera mulai sekolah" },
-        { hanzi: "就要考试了", pinyin: "jiùyào kǎoshì le", arti: "akan segera ujian" },
-        { hanzi: "准备好了吗", pinyin: "zhǔnbèi hǎo le ma", arti: "apakah sudah siap?" },
-        { hanzi: "在做什么", pinyin: "zài zuò shénme", arti: "sedang melakukan apa" },
-        { hanzi: "看书", pinyin: "kàn shū", arti: "membaca buku" },
-        { hanzi: "复习", pinyin: "fùxí", arti: "mengulang pelajaran" },
-        { hanzi: "学习", pinyin: "xuéxí", arti: "belajar" },
-        { hanzi: "上学", pinyin: "shàngxué", arti: "pergi ke sekolah" },
-        { hanzi: "放学", pinyin: "fàngxué", arti: "pulang sekolah" },
-        { hanzi: "做作业", pinyin: "zuò zuòyè", arti: "mengerjakan pekerjaan rumah" },
-        { hanzi: "汉字", pinyin: "hànzì", arti: "karakter Han" },
-        { hanzi: "拼音", pinyin: "pīnyīn", arti: "ejaan fonetik" },
-        { hanzi: "作文", pinyin: "zuòwén", arti: "karangan; esai" },
-        { hanzi: "老师", pinyin: "lǎoshī", arti: "guru" },
-        { hanzi: "学生", pinyin: "xuésheng", arti: "murid" },
-        { hanzi: "同学", pinyin: "tóngxué", arti: "teman sekelas" },
-        { hanzi: "家长", pinyin: "jiāzhǎng", arti: "orang tua murid" },
-        { hanzi: "成绩", pinyin: "chéngjì", arti: "nilai; prestasi" },
-        { hanzi: "分数", pinyin: "fēnshù", arti: "skor; nilai" },
-        { hanzi: "考了满分", pinyin: "kǎo le mǎnfēn", arti: "mendapat nilai sempurna" },
-        { hanzi: "及格", pinyin: "jígé", arti: "lulus (ujian)" },
-        { hanzi: "不及格", pinyin: "bù jígé", arti: "tidak lulus" },
-        { hanzi: "努力", pinyin: "nǔlì", arti: "berusaha keras" },
-        { hanzi: "认真", pinyin: "rènzhēn", arti: "serius; tekun" },
-        { hanzi: "检查", pinyin: "jiǎnchá", arti: "memeriksa" },
-        { hanzi: "预习", pinyin: "yùxí", arti: "mempersiapkan pelajaran sebelumnya" },
-        { hanzi: "记住", pinyin: "jìzhù", arti: "mengingat" },
-        { hanzi: "忘记", pinyin: "wàngjì", arti: "lupa" },
-        { hanzi: "明白", pinyin: "míngbai", arti: "mengerti" },
-        { hanzi: "清楚", pinyin: "qīngchu", arti: "jelas" },
-        { hanzi: "认真听", pinyin: "rènzhēn tīng", arti: "mendengarkan dengan serius" }
+        { hanzi: "哪里", pinyin: "nǎlǐ", arti: "di mana" },
+        { hanzi: "谁", pinyin: "shéi", arti: "siapa" },
+        { hanzi: "怎么", pinyin: "zěnme", arti: "bagaimana (cara)" },
+        { hanzi: "怎么样", pinyin: "zěnmeyàng", arti: "bagaimana (keadaan)" },
+        { hanzi: "多少", pinyin: "duōshao", arti: "berapa (jumlah)" },
+        { hanzi: "几", pinyin: "jǐ", arti: "berapa (angka kecil)" },
+        // Kata Keterangan
+        { hanzi: "已经", pinyin: "yǐjīng", arti: "sudah" },
+        { hanzi: "还", pinyin: "hái", arti: "masih / bahkan" },
+        { hanzi: "也", pinyin: "yě", arti: "juga" },
+        { hanzi: "都", pinyin: "dōu", arti: "semuanya" },
+        { hanzi: "很", pinyin: "hěn", arti: "sangat" },
+        { hanzi: "非常", pinyin: "fēicháng", arti: "sangat luar biasa" },
+        { hanzi: "太", pinyin: "tài", arti: "terlalu" },
+        { hanzi: "现在", pinyin: "xiànzài", arti: "sekarang" },
+        { hanzi: "马上", pinyin: "mǎshàng", arti: "segera" },
+        { hanzi: "先", pinyin: "xiān", arti: "duluan / pertama" },
+        { hanzi: "这次", pinyin: "zhè cì", arti: "kali ini" },
+        { hanzi: "上次", pinyin: "shàng cì", arti: "kali lalu" },
+        { hanzi: "明天", pinyin: "míngtiān", arti: "besok" },
+        { hanzi: "今天", pinyin: "jīntiān", arti: "hari ini" },
+        { hanzi: "昨天", pinyin: "zuótiān", arti: "kemarin" },
+        { hanzi: "每", pinyin: "měi", arti: "setiap" },
+        // Frasa & Ungkapan
+        { hanzi: "就要开学了", pinyin: "jiùyào kāixué le", arti: "Sebentar lagi mulai sekolah." },
+        { hanzi: "快要考试了", pinyin: "kuàiyào kǎoshì le", arti: "Sebentar lagi ujian." },
+        { hanzi: "准备好了吗", pinyin: "zhǔnbèi hǎo le ma", arti: "Sudah siap?" },
+        { hanzi: "你自己准备", pinyin: "nǐ zìjǐ zhǔnbèi", arti: "Kamu persiapkan sendiri." },
+        { hanzi: "做错的题", pinyin: "zuòcuò de tí", arti: "Soal yang salah dikerjakan." },
+        { hanzi: "好不好", pinyin: "hǎo bu hǎo", arti: "Baik tidak? / Bagaimana kalau...?" },
+        { hanzi: "别去了", pinyin: "bié qù le", arti: "Jangan pergi." },
+        { hanzi: "我帮你拿", pinyin: "wǒ bāng nǐ ná", arti: "Saya bantu kamu ambilkan." },
+        { hanzi: "这次比上次好", pinyin: "zhè cì bǐ shàng cì hǎo", arti: "Kali ini lebih baik dari sebelumnya." },
+        { hanzi: "比我们还忙", pinyin: "bǐ wǒmen hái máng", arti: "Bahkan lebih sibuk dari kami." }
     ];
     const TOTAL_VOCAB = vocabulary.length;
 
-    // ========== FLASHCARD DENGAN CHECKLIST ==========
+    // ========== FLASHCARD ==========
     let currentDisplayList = [...vocabulary];
     let currentFlashIndex = 0;
     let isFlipped = false;
@@ -440,7 +467,7 @@
     function showAllFlash() { currentDisplayList = [...vocabulary]; currentFlashIndex=0; isFlipped=false; renderFlashcard(); }
     function shuffleFlash() { currentDisplayList = shuffleArray([...currentDisplayList]); currentFlashIndex=0; isFlipped=false; renderFlashcard(); }
 
-    // ========== KUIS DENGAN TIMER, SUARA, ULANG SALAH ==========
+    // ========== KUIS ==========
     let audioCtx = null;
     function initAudio() { if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)(); return audioCtx; }
     function playTone(freq, dur, vol=0.2) { let ctx=initAudio(); if(ctx.state==='suspended') ctx.resume().then(()=>_play(ctx,freq,dur,vol)).catch(e=>{}); else _play(ctx,freq,dur,vol); }
